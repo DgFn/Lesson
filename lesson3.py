@@ -18,6 +18,6 @@ def get_user_info():
         return
     else:
         print('Поешь кириешки пока что')
-        return
+
 
 get_user_info()
