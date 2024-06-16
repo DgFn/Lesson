@@ -13,14 +13,11 @@ def get_user_info():
     if not name or len(name) < 3:
         print('Неверно указано имя')
 
-
     if age >= 14:
         print('Паспорт можно получить')
 
     else:
         print('Поешь кириешки пока что')
-
-
 
 
 get_user_info()
