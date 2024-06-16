@@ -9,15 +9,15 @@ def get_user_info():
     name, age = input('Введите имя: '), int(input('Введите возвраст:'))
     if age <= 0:
         print('Минимальный возраст 14')
-
+        return
     if not name or len(name) < 3:
         print('Неверно указано имя')
-
+        return
     if age >= 14:
         print('Паспорт можно получить')
-
+        return
     else:
         print('Поешь кириешки пока что')
-
+        return
 
 get_user_info()
