@@ -15,7 +15,6 @@ def get_user_info():
         return
     if age >= 14:
         print('Паспорт можно получить')
-        return
     else:
         print('Поешь кириешки пока что')
 
