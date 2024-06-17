@@ -30,17 +30,17 @@ def validation_name(name: str) -> tuple[bool, str]:
 
     return True,''
 
-
+#Удаление пробелов
 def validation_split(name: str) -> list[str]:
     name.split()
-
+# Проверка возраста
 def validation_age(age: int) -> tuple[bool, str]:
     if age <= 0:
         return False, 'Ошибка: Недопустимый возраст'
     if age < 14:
         return False, "Ошибка: Минимальный возраст 14 лет"
     return True,''
-
+#Совет для паспорта
 def validation_id(name: str, age: int) -> str:
 
     if 16 <= age <= 17:
