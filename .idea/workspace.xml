@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6c63757c-4354-40b0-a806-b23f2966b7d9" name="Changes" comment="delete test variant">
+      <change afterPath="$PROJECT_DIR$/.idea/faster.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tester.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson3.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson3.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="le1" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2hqDUTd54rLaiArZ7o1dXHdOHQc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.lesson3.executor": "Run",
+    "Python.lesson4.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.tester.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\pyscrip\faster" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-50da183f06c8-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13135.95" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6c63757c-4354-40b0-a806-b23f2966b7d9" name="Changes" comment="" />
+      <created>1718312730237</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1718312730237</updated>
+    </task>
+    <task id="LOCAL-00001" summary="# Написать программу, которая&#10;# - Запрашивает у пользователя имя и возраст;&#10;# - Проверяет минимальный возраст 14;&#10;# - Проверяет, что имя введено и минимальное количество символов в имени — 3;&#10;# - Проверяет возраст на отрицательное число или 0;&#10;# - Проверяет имя на пустоту;">
+      <option name="closed" value="true" />
+      <created>1718537829366</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1718537829366</updated>
+    </task>
+    <task id="LOCAL-00002" summary="# Написать программу, которая&#10;# - Запрашивает у пользователя имя и возраст;&#10;# - Проверяет минимальный возраст 14;&#10;# - Проверяет, что имя введено и минимальное количество символов в имени — 3;&#10;# - Проверяет возраст на отрицательное число или 0;&#10;# - Проверяет имя на пустоту;">
+      <option name="closed" value="true" />
+      <created>1718538315768</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1718538315768</updated>
+    </task>
+    <task id="LOCAL-00003" summary="# Написать программу, которая&#10;# - Запрашивает у пользователя имя и возраст;&#10;# - Проверяет минимальный возраст 14;&#10;# - Проверяет, что имя введено и минимальное количество символов в имени — 3;&#10;# - Проверяет возраст на отрицательное число или 0;&#10;# - Проверяет имя на пустоту;">
+      <option name="closed" value="true" />
+      <created>1718539010177</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1718539010177</updated>
+    </task>
+    <task id="LOCAL-00004" summary="- return">
+      <option name="closed" value="true" />
+      <created>1718539253135</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1718539253135</updated>
+    </task>
+    <task id="LOCAL-00005" summary="- return">
+      <option name="closed" value="true" />
+      <created>1718539432166</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1718539432166</updated>
+    </task>
+    <task id="LOCAL-00006" summary="new test">
+      <option name="closed" value="true" />
+      <created>1718557160334</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1718557160334</updated>
+    </task>
+    <task id="LOCAL-00007" summary="11">
+      <option name="closed" value="true" />
+      <created>1718558107848</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1718558107848</updated>
+    </task>
+    <task id="LOCAL-00008" summary="delete test variant">
+      <option name="closed" value="true" />
+      <created>1718558327540</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1718558327540</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="TEXT_FILTER_SETTINGS">
+                <TextFilterSettings>
+                  <option name="MATCH_CASE" value="true" />
+                </TextFilterSettings>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="# Написать программу, которая&#10;# - Запрашивает у пользователя имя и возраст;&#10;# - Проверяет минимальный возраст 14;&#10;# - Проверяет, что имя введено и минимальное количество символов в имени — 3;&#10;# - Проверяет возраст на отрицательное число или 0;&#10;# - Проверяет имя на пустоту;" />
+    <MESSAGE value="- return" />
+    <MESSAGE value="new test" />
+    <MESSAGE value="11" />
+    <MESSAGE value="delete test variant" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete test variant" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

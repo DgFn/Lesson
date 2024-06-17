@@ -19,38 +19,37 @@
 # прошлый урок.
 
 # Проверка имени
-def validation_name(name: str) -> tuple[bool, str]:
+def validation_name(name: str) -> str:
     if not name or len(name) < 3:
-        return False, 'Ошибка: Недопустимое имя'
+        return 'Ошибка: Недопустимое имя'
 
 # Делаю список по пробелам, если есть лишний пробел вывожу ошибку
     name_array = name.split(' ')
     if '' in name_array:
-        return False, 'Ошибка: Большое количество пробелов'
+        return 'Ошибка: Большое количество пробелов'
 
-    return True,''
+    return ''
 
-#Удаление пробелов
-def validation_split(name: str) -> list[str]:
-    name.split()
+
 # Проверка возраста
-def validation_age(age: int) -> tuple[bool, str]:
+def validation_age(age: int) -> str:
     if age <= 0:
-        return False, 'Ошибка: Недопустимый возраст'
+        return 'Ошибка: Недопустимый возраст'
     if age < 14:
-        return False, "Ошибка: Минимальный возраст 14 лет"
-    return True,''
-#Совет для паспорта
+        return "Ошибка: Минимальный возраст 14 лет"
+    return ''
+# Совет для паспорта
+
+
 def validation_id(name: str, age: int) -> str:
 
     if 16 <= age <= 17:
         return 'Не забудь получить свой первый паспорт!'
-    elif 25 <= age <= 26:
+    if 25 <= age <= 26:
         return 'Не забудь заменить паспорт!'
-    elif 45 <= age <= 46:
+    if 45 <= age <= 46:
         return 'Не забудь заменить паспорт!'
     return ''
-
 
 
 # Запускаем все функции
@@ -60,12 +59,11 @@ def main() -> None:
         age = int(input('Введите возраст: '))
         result_validation_name = validation_name(name)
         result_validation_age = validation_age(age)
-        if result_validation_name[0] and result_validation_age[0]:
+        if not result_validation_name and not result_validation_age:
             result_validation_id = validation_id(name, age)
-            print(f'Привет {name}, тебе {age} лет.',result_validation_id)
+            print(f'Привет {name}, тебе {age} лет.', result_validation_id)
             break
-        else:
-            print(result_validation_name[1],result_validation_age[1])
+        print(result_validation_name, result_validation_age)
 
 
 
