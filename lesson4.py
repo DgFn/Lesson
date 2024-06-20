@@ -1,70 +1,88 @@
-# Берём уже то, что вы сделали к последнему уроку.
-# 0. Обязательно к прочтению Дзен python.
-# 1. Создать несколько функций на проверку введённых данных:
-# - Проверка имени
-# - Проверка возраста Функции должны возвращать строку с ошибкой. Если функции вернули ошибки, нужно вывести
-# пользователю ошибки.
-# 2. Улучшить проверку имени: в имени между буквами допускается только 1 пробел.
-# 3. Сделать совет по получению или замене паспорта (эта задача больше не является со звездочкой) в отдельной функции,
-# которая возвращает строку.
-# 4. Создать функцию main, в которой будут вызовы всех остальных функций, ввод данных и прочее.
-# 5. Создать цикл до тех пор, пока пользователь не введёт верные данные без ошибок.
-# 6. Создать функцию, которая очищает введённые данные от лишних пробелов в начале и в конце строки.
-# ### Ограничения:
-# - Разрешается использовать только два раза print.
-# - Нельзя использовать глобальные переменные
-# ### Дополнительная информация:
-# - Когда вы упакуете весь код в функции и запустите приложение, то у вас не будет запрошено что-то ввести и вывода тоже
-# не будет. Рекомендую сначала вам дойти до этого момента, столкнуться с этой проблемой, 10 раз подумать, вспомнить
-# прошлый урок.
+""""""
+import random
 
-# Проверка имени
-def validation_name(name: str) -> str:
+
+def validate_name(name: str) -> str | None:
+    """ Проверка имени
+    :param name: имя введеное пользователем
+    :raise: возращает ошибки, если проверка не прошла
+    :return возвращает None если проверки прошли
+    """
     if not name or len(name) < 3:
-        return 'Ошибка: Недопустимое имя'
+        raise Exception('Ошибка: Недопустимое имя')
 
-# Делаю список по пробелам, если есть лишний пробел вывожу ошибку
     name_array = name.split(' ')
     if '' in name_array:
-        return 'Ошибка: Большое количество пробелов'
+        raise Exception('Ошибка: Большое количество пробелов')
 
-    return ''
+    return None
 
 
-# Проверка возраста
-def validation_age(age: int) -> str:
+def validate_age(age: int) -> str | None:
+    """Проверка возраст
+    :param age: возраст введенный пользователем
+    :raise: возращает ошибки, если проверка не прошла
+    :return: возвращает None если проверки прошли
+    """
     if age <= 0:
-        return 'Ошибка: Недопустимый возраст'
+        raise Exception('Ошибка: Недопустимый возраст')
     if age < 14:
-        return "Ошибка: Минимальный возраст 14 лет"
-    return ''
-# Совет для паспорта
+        raise Exception("Ошибка: Минимальный возраст 14 лет")
+    return None
 
 
-def validation_id(name: str, age: int) -> str:
+def get_passport_advicce(name: str, age: int) -> str:
+    """Функция которая выводит совет о получении паспорта
 
+
+    :param age: возраст введенный пользователем
+    :param name: имя введеное пользователем
+    :return: возвращает совет о паспорте
+    """
     if 16 <= age <= 17:
         return 'Не забудь получить свой первый паспорт!'
     if 25 <= age <= 26:
         return 'Не забудь заменить паспорт!'
     if 45 <= age <= 46:
         return 'Не забудь заменить паспорт!'
-    return ''
+    return 'Паспорт пока не одобрят.'
 
 
-# Запускаем все функции
+def guess_number_game() -> None:
+    """Функция игра, угадай число"""
+
+    hidden_number = random.randint(1,5)
+    count_user = 0
+    while True:
+        number_user = int(input('Попробуй угадать  число: '))
+        if number_user == hidden_number:
+            print(f'Вы угадали с {count_user +1} попытки ')
+            break
+        count_user += 1
+
+
 def main() -> None:
+    """Запуск всех функций"""
+
+    count_user_validate = 0
     while True:
         name = input('Введите имя: ')
-        age = int(input('Введите возраст: '))
-        result_validation_name = validation_name(name)
-        result_validation_age = validation_age(age)
-        if not result_validation_name and not result_validation_age:
-            result_validation_id = validation_id(name, age)
-            print(f'Привет {name}, тебе {age} лет.', result_validation_id)
-            break
-        print(result_validation_name, result_validation_age)
+        try:
+            count_user_validate += 1
+            age = int(input('Введите возраст: '))
+            validate_name(name)
+            validate_age(age)
+        except ValueError as e:
+            print('Возраст не может быть строкой')
+            continue
+        except Exception as e:
+            print(e)
+            continue
 
+        result_validation_id = get_passport_advicce(name, age)
+        print(f'Привет {name}, тебе {age} лет.\n', result_validation_id,f'Количетсво попыток проверки:{count_user_validate}.')
+        break
+    guess_number_game()
 
 
 if __name__ == '__main__':
