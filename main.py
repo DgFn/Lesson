@@ -51,7 +51,7 @@
        с ним.
     5. Теперь количество попыток ввода данных должно выводиться только
     в том случае, если пользователь не смог с первого
-       раза ввести верные данные. (А еще придумайте как можно избавиться от счетчика попыток).
+       раза ввести верные данные.
     6. После ввода верных данных и до запуска игры необходимо
     показать пользователю:
        1. Общее количество попыток
@@ -85,7 +85,6 @@ def main() -> None:
             print(e)
             continue
 
-
         print(f'Привет {name}, тебе {age} лет.\n', validator.validate(date))
         if count_user_validate > 1:
             print(f'Количетсво попыток проверки:{count_user_validate}.')
@@ -93,12 +92,18 @@ def main() -> None:
     first_try = count_date[0].strftime('%H:%M:%S')
     last_try = count_date[-1].strftime('%H:%M:%S')
     print(f'Общее количество попыток валидации: {count_user_validate}')
-    if len(count_date) >1:
+
+    if len(count_date) > 1:
         print(f'Время первой попытки: {first_try}.\n'
               f'Время последней попытки: {last_try} ')
-        print(f'Время на прохождение: {count_date[-1] - count_date[0]}')
+        time_diff = count_date[-1] - count_date[0]
+        hours, remainder = divmod(time_diff.seconds, 3600)
+        minutes, seconds = divmod(remainder, 60)
+        time_diff_str = f"{hours:02}:{minutes:02}:{seconds:02}"
+        print(f'Время на прохождение: {time_diff_str}')
 
     validator.guess_number_game()
+
 
 if __name__ == '__main__':
     main()

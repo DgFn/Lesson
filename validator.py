@@ -1,7 +1,7 @@
-import datetime
 import random
 from datetime import datetime
 from exceptions import ValidationError
+
 
 class Data:
     """Класс инициализации данных"""
@@ -12,8 +12,6 @@ class Data:
         if not self.age.isdigit():
             raise ValidationError('Возраст не может быть строкой')
         self.age = int(self.age)
-
-
 
     def _clear_whitespaces(self):
         self.name = self.name.strip()
@@ -32,7 +30,6 @@ class DataWithDate(Data):
         super().__init__(name, age)
 
 
-
 class Validator:
     """Класс валидация данных"""
     def __init__(self):
@@ -47,7 +44,6 @@ class Validator:
         self._validate_name(self.data_history[-1].name)
         self._validate_age(self.data_history[-1].age)
         return self.get_passport_advicce(self.data_history[-1].age)
-
 
     def _validate_name(self, name: str) -> str | None:
         """ Проверка имени
@@ -76,7 +72,6 @@ class Validator:
         if age < 14:
             raise ValidationError("Ошибка: Минимальный возраст 14 лет")
         return None
-
 
     def get_passport_advicce(self, age: int) -> str:
         """Функция которая выводит совет о получении паспорта
