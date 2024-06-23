@@ -89,11 +89,11 @@ class Authenticator:
         if self._is_auth_file_exist():
             self._read_auth_file()
 
-    def _is_auth_file_exist(self):
+    @staticmethod
+    def _is_auth_file_exist():
         """Проверяет наличие файла для обработки"""
-        if os.path.isfile('..\\lesson_9\\auth.txt'):
-            return True
-        return False
+        return os.path.isfile('..\\lesson_9\\auth.txt')
+
 
     def _read_auth_file(self):
         """Записываем данные из файла"""
@@ -148,3 +148,4 @@ class Authenticator:
         self.errors_count += 1
         self._update_auth_file()
         raise AuthorizationError("Неверный логин или пароль!")
+
