@@ -91,13 +91,13 @@ class Authenticator:
 
     def _is_auth_file_exist(self):
         """Проверяет наличие файла для обработки"""
-        if os.path.isfile('..\\lesson9\\auth.txt'):
+        if os.path.isfile('\\auth.txt'):
             return True
         return False
 
     def _read_auth_file(self):
         """Записываем данные из файла"""
-        with open('..\\lesson9\\auth.txt', 'r') as f:
+        with open('\\auth.txt', 'r') as f:
             self.login = f.readline()
             self._password = f.readline()
             self.last_success_login_at = datetime.fromisoformat(eval(f.readline()))
@@ -105,7 +105,7 @@ class Authenticator:
 
     def _update_auth_file(self):
         """Обновляет данные в файле"""
-        with open('..\\lesson9\\auth.txt', 'w') as f:
+        with open('\\auth.txt', 'w') as f:
             f.write(self.login)
             f.write(self._password)
             f.write('datetime.utcnow().isoformat()\n')
@@ -121,7 +121,7 @@ class Authenticator:
         if self.login is not None:
             raise RegistrationError('Логин не может быть заполненым')
 
-        with open('..\\lesson9\\auth.txt', 'w') as f:
+        with open('\\auth.txt', 'w') as f:
             f.write(f'{login}\n')
             f.write(f'{password}\n')
             f.write('datetime.utcnow().isoformat()\n')
