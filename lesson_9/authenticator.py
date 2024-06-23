@@ -121,7 +121,7 @@ class Authenticator:
         if self.login is not None:
             raise RegistrationError('Логин не может быть заполненым')
 
-        with open('\\auth.txt', 'w') as f:
+        with open('..\\lesson_9\\auth.txt', 'w') as f:
             f.write(f'{login}\n')
             f.write(f'{password}\n')
             f.write('datetime.utcnow().isoformat()\n')
