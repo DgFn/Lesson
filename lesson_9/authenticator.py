@@ -72,9 +72,9 @@
 (формат `день.месяц.год час:минута:секунда`)
  и сколько раз пытались войти в приложение с ошибкой авторизации.
 
-7. Запускаем игру в отгадайку рандомного числа."""
+"""
 
-from datetime import datetime
+from datetime import datetime, UTC
 import os
 
 from exceptions import AuthorizationError, RegistrationError
@@ -92,40 +92,36 @@ class Authenticator:
     @staticmethod
     def _is_auth_file_exist():
         """Проверяет наличие файла для обработки"""
-        return os.path.isfile('..\\lesson_9\\auth.txt')
-
+        return os.path.isfile('auth.txt')
 
     def _read_auth_file(self):
         """Записываем данные из файла"""
-        with open('..\\lesson_9\\auth.txt', 'r') as f:
+        with open('auth.txt', 'r') as f:
             self.login = f.readline()
             self._password = f.readline()
-            self.last_success_login_at = datetime.fromisoformat(eval(f.readline()))
+            self.last_success_login_at = datetime.fromisoformat((f.readline().strip()))
             self.errors_count = int(f.readline())
 
     def _update_auth_file(self):
         """Обновляет данные в файле"""
-        with open('..\\lesson_9\\auth.txt', 'w') as f:
-            f.write(self.login)
-            f.write(self._password)
-            f.write('datetime.utcnow().isoformat()\n')
-            f.write(f'{self.errors_count}')
+        with open('auth.txt', 'w') as f:
+            f.write(f'{self.login.strip()}\n')
+            f.write(f'{self._password.strip()}\n')
+            f.write(f'{datetime.now(tz=UTC).isoformat()}\n')
+            f.write(str(self.errors_count))
 
     def registrate(self, login: str | None, password: str | None) -> None:
         """Регистрирует пользователя"""
-        if os.path.isfile('..\\lesson_9\\auth.txt'):
+        if os.path.isfile('auth.txt'):
             self.errors_count += 1
-            self._update_auth_file()
             raise RegistrationError('Файл с данным уже создан')
 
         if self.login is not None:
             raise RegistrationError('Логин не может быть заполненым')
-
-        with open('..\\lesson_9\\auth.txt', 'w') as f:
-            f.write(f'{login}\n')
-            f.write(f'{password}\n')
-            f.write('datetime.utcnow().isoformat()\n')
-            f.write(f'{self.errors_count}')
+        self.login = login
+        self._password = password
+        self.last_success_login_at = datetime.now(tz=UTC)
+        self._update_auth_file()
 
     def authorize(self, login: str | None, password: str | None) -> bool | str:
         """ `authorize(login, password)` - Проверка логина и пароля.
@@ -148,4 +144,3 @@ class Authenticator:
         self.errors_count += 1
         self._update_auth_file()
         raise AuthorizationError("Неверный логин или пароль!")
-
