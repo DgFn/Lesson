@@ -21,7 +21,7 @@ def cycle(func):
 
 
 @cycle
-def main() -> bool:
+def main() -> bool | None:
     """Запуск всех модулей"""
 
     authentication = Authenticator()
