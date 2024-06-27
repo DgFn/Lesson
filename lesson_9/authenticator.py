@@ -2,7 +2,7 @@
 import json
 from datetime import datetime, UTC
 import os
-
+from validator import Validator
 from exceptions import AuthorizationError, RegistrationError
 
 
@@ -35,6 +35,9 @@ class Authenticator:
             data = {
                 'login': self.login,
                 'password': self._password,
+                #Так как у Json нет объекта datitme, было решено использовать
+                #isoformat, потому что он возращает строку, которая может
+                # сохранится в json
                 'last_success_login_at': datetime.now(tz=UTC).isoformat(),
                 'errors_count': self.errors_count
             }
@@ -48,10 +51,11 @@ class Authenticator:
 
         if self.login is not None:
             raise RegistrationError('Логин не может быть заполненым')
-        self.login = login
-        self._password = password
-        self.last_success_login_at = datetime.now(tz=UTC)
-        self._update_auth_file()
+        if Validator.validate_password(password) and Validator.validate_email(login):
+            self.login = login
+            self._password = Validator.hash_password(password)
+            self.last_success_login_at = datetime.now(tz=UTC)
+            self._update_auth_file()
 
     def authorize(self, login: str | None, password: str | None) -> bool | str:
         """ `authorize(login, password)` - Проверка логина и пароля.
@@ -67,7 +71,7 @@ class Authenticator:
                 значение, вызвать ошибку `AuthorizationError`."""
         if self.login is None:
             raise AuthorizationError('Недопустимый логин')
-        if login == self.login.strip() and password == self._password.strip():
+        if login == self.login.strip() and Validator.check_hash_password(password, self._password):
             self._update_auth_file()
             return True
 

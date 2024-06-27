@@ -1,17 +1,52 @@
-"""Модуль валидации введных данных"""
+"""Модуль валидации введных данных
+
+
+    Тут я использовал уже готовыю библиотеку ждя хэширования пароля
+    Ее преимущества в том что она добавляет соль(какое-то количество символов) к паролю
+    и вдобавок многократно хеэширует пароль
+"""
+import re
+
+import bcrypt
+import base64
+from exceptions import ValidationError
 
 
 class Validator:
+    """Класс валидирует данные """
 
-    def validate_password(self, password: str) -> bool:
+    @staticmethod
+    def validate_password(password: str) -> None | bool:
+        """Метод валидации пароля"""
 
-        pass
+        regex = r'(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{4,}'
+        if re.fullmatch(regex, password) is None:
+            raise ValidationError(
+                'В пароле должно бытьминимум 4 символа, '
+                'минимум один заглавный символ, минимум один прописной символ,'
+                ' минимум одна цифра, минимум один спецсимвол.')
+        return True
 
+    @staticmethod
+    def validate_email(email: str) -> None | bool:
+        """Метод валидации почты"""
 
+        regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
+        if re.fullmatch(regex,email) is None:
+            raise ValidationError('Неверно указан email')
+        return True
 
-    def validate_email(self, email: str) -> bool:
-        pass
+    @staticmethod
+    def hash_password(password: str) -> str:
+        """Метод хэширование пароля"""
 
+        hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+        hashed_password = base64.b64encode(hashed_password).decode('utf-8')
+        return hashed_password
 
-    def _hash_password(self, password: str) -> str:
-        pass
+    @staticmethod
+    def check_hash_password(password: str, hashed_password: str) -> bool:
+        """Метод проверки хэшированного пароля с введенным"""
+        hashed_password = base64.b64decode(hashed_password)
+        return bcrypt.checkpw(password.encode('utf-8'), hashed_password)
+

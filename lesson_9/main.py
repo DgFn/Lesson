@@ -7,7 +7,7 @@ True значение должно вернуться в том случае, е
 """
 
 from authenticator import Authenticator
-from exceptions import AuthorizationError, RegistrationError
+from exceptions import AuthorizationError, RegistrationError,ValidationError
 
 
 def cycle(func):
@@ -28,9 +28,9 @@ def main() -> bool | None:
     if authentication.login:
         print('Вам нужно авторизоваться')
     else:
-        print('Вам нужно зарегистрироватся')
+        print('Вам нужно зарегистрироваться')
 
-    login = input('Введите логин:')
+    login = input('Введите почту:')
     password = input('Введите пароль:')
 
     if authentication.login:
@@ -49,6 +49,9 @@ def main() -> bool | None:
         authentication.registrate(login, password)
 
     except RegistrationError as e:
+        print(e)
+        return False
+    except ValidationError as e:
         print(e)
         return False
     print('Вы успешно зарегистрированны, авторизуйтесь!')
